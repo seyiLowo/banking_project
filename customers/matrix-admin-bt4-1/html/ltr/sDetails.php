@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>KB-Update Details</title>
+    <title>KB-Edit my account</title>
     <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <link href="../../dist/css/style.min.css" rel="stylesheet">
 
@@ -29,8 +29,8 @@
             }
     </style>
 </head>
-<?php
-if(!isset($_SESSION))
+<?php 
+    if(!isset($_SESSION))
     {
         session_start();
     }
@@ -48,7 +48,7 @@ if(!isset($_SESSION))
                         </b>
 
                         <span class="logo-text">
-                             <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>   
+                             <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>    
                         </span>
                     </a>
                  
@@ -59,6 +59,19 @@ if(!isset($_SESSION))
                   
                     <ul class="navbar-nav float-left mr-auto">
                         <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                    
+                        <!-- <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Action</a>
+                                <a class="dropdown-item" href="#">Another action</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                            </div>
+                        </li> -->
                         
                         <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search position-absolute">
@@ -75,12 +88,15 @@ if(!isset($_SESSION))
                                 ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="transactions.php"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
-                                <a class="dropdown-item" href="dUpdate"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-wallet m-r-5 m-l-5"></i> My Balance</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-email m-r-5 m-l-5"></i> Inbox</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="index.php"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <div class="p-l-30 p-10"><a href="cDashboard" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
+                                <a class="dropdown-item" href="sIndex.php"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
+                                <div class="dropdown-divider"></div>
+                                <div class="p-l-30 p-10"><a href="javascript:void(0)" class="btn btn-sm btn-success btn-rounded">View Profile</a></div>
                             </div>
                         </li>
                     </ul>
@@ -92,24 +108,25 @@ if(!isset($_SESSION))
             <div class="scroll-sidebar">
                  <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cDashboard.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="transactions.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Transactions</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="transfers.php" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Transfer</span></a></li>
-                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="dUpdate.php" aria-expanded="false"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Edit Account Details </span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="clients.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Client List</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admins.php" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Staff List</span></a></li>
+                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="sDetails.php" aria-expanded="false"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Edit Account Details </span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="sRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Admin</span></a></li>
+                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="cRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Client</span></a></li>
                     </ul>
                 </nav>
             </div>
         </aside>
-
         <div class="page-wrapper">
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Update Account Details</h4>
+                        <h4 class="page-title">Edit Account Details</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="cDashboard.php">Home</a></li>
+                                    <li class="breadcrumb-item"><a href="index2.php">Home</a></li>
                                     <li class="breadcrumb-item active" aria-current="page">Library</li>
                                 </ol>
                             </nav>
@@ -122,16 +139,16 @@ if(!isset($_SESSION))
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal" action="cUpdate_pdetails.php" method="post">
+                            <form class="form-horizontal" action="sUpdate_pdetails.php" method="post">
                                 <div class="card-body">
                                     <h4 class="card-title">Personal Info</h4>
                                     <center><font color="red"><h5>
-                                        <?php
-                                            if(isset($Mssg)){
-                                                echo $Mssg;
-                                            }
-                                        ?>
-                                    </h5></font></center>
+                                            <?php
+                                                if(isset($Mssg)){
+                                                    echo $Mssg;
+                                                }
+                                            ?>
+                                        </h5></font></center>
                                     <div class="form-group row">
                                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">User Email</label>
                                         <div class="col-sm-9">
