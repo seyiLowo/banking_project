@@ -4,7 +4,7 @@ if(!isset($_SESSION))
         session_start();
     }
 
-require ('conn.php');
+require ('sConn.php');
 
 $email = $_POST['email'];
 $password = $_POST['password'];
@@ -18,13 +18,13 @@ $result = mysqli_query($con, "select * from class110618 where email = '$email' a
 $flag = true;
 if($r = mysqli_fetch_array($result))
 {
-   include('index1.php');
+   include('cDashboard.php');
 	$flag = false;
 }
 else if($flag)
 {
    $errorMssg = 'Incorrect Email or Password';
-	include('login.php');
+	include('index.php');
 }
 
 ?>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>KB-Admin Login</title>
+	<title>KB-Staff Login</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -188,7 +188,7 @@
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
 			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
-			<li class="nav-item active"><a href="index.php" class="nav-link">Login</a></li>
+			<li class="nav-item active"><a href="sIndex.php" class="nav-link">Login</a></li>
 			<li class="nav-item"><a href="admin_contact.php" class="nav-link">Contact</a></li>
 		</ul>
 		<form class="navbar-form form-inline navbar-right ml-auto">
@@ -234,7 +234,7 @@
             <a href="#" class="pull-right">Forgot Password?</a>
         </div>        
     </form>
-    <!-- <p class="text-center small">Don't have an account! <a href="admin_registration.php">Sign up here</a>.</p> -->
+
 </div>
 </body>
 </html>                            

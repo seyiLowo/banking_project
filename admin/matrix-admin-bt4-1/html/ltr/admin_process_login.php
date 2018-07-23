@@ -4,7 +4,7 @@
         session_start();
     }
 
-  require ('conn.php');
+  require ('sConn.php');
 	$email = $_POST['email'];
 	$password = $_POST['password'];
   $epassword = sha1($_POST['password']);
@@ -23,7 +23,7 @@
 	else if($flag)
 	{
     $errorMssg = 'Incorrect Email or Password';
-		include('index.php');
+		include('sIndex.php');
 	}
 
 ?>

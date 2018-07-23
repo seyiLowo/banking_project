@@ -4,7 +4,7 @@ if(!isset($_SESSION))
         session_start();
     }
 
-require ('conn.php');
+require ('sConn.php');
 
 $wAmount = $_POST['wAmount'];
 $dAmount = $_POST['dAmount'];
@@ -22,7 +22,8 @@ if($wAmount!== ''){
 	if($balance !== ''){
 		$nBalance = $balance - $wAmount;
 		$ndAmount = mysqli_query($con, "insert into transactions (withdrawal, balance, time, customer_email) values('$wAmount', '$nBalance', '$date', '$customer_email')");
-		include('index1.php');
+		$Mssg = 'Withdrawn!';
+		include('transfers.php');
 	}
 	echo mysqli_error($con);
 }
@@ -30,20 +31,23 @@ if($wAmount!== ''){
 else if($dAmount!== ''){
 	if ($balance == ''){
 			$ndAmount = mysqli_query($con, "insert into transactions (deposit, balance, time, customer_email) values('$dAmount', '$dAmount', '$date', '$customer_email')");
-			include('index1.php');
+			$Mssg = 'Deposited!';
+			include('transfers.php');
 		}
 
 	else{
 		
 		$nBalance = $balance + $dAmount;
 		$ndAmount = mysqli_query($con, "insert into transactions (deposit, balance, time, customer_email) values('$dAmount', '$nBalance', '$date', '$customer_email')");
-		include('index1.php');
+		$Mssg = 'Deposited!';
+		include('transfers.php');
 	}
 	echo mysqli_error($con);			
 }
 
 else {
-	include('index1.php');
+	$Mssg = 'Enter withdrawal or deposit amount';
+	include('transfers.php');
 }
 
 

@@ -174,7 +174,7 @@
 <body>
 <nav class="navbar navbar-default navbar-expand-lg navbar-light">
 	<div class="navbar-header d-flex col">
-		<a class="navbar-brand" href="login.php">Keystone<b>Bank</b></a>  		
+		<a class="navbar-brand" href="#">Keystone<b>Bank</b></a>  		
 		<button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle navbar-toggler ml-auto">
 			<span class="navbar-toggler-icon"></span>
 			<span class="icon-bar"></span>
@@ -185,9 +185,9 @@
 
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="login.php" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
 			<li class="nav-item"><a href="#" class="nav-link">About</a></li>			
-			<li class="nav-item dropdown">
+			<!-- <li class="nav-item dropdown">
 				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
 				<ul class="dropdown-menu">					
 					<li><a href="#" class="dropdown-item">Web Design</a></li>
@@ -195,10 +195,10 @@
 					<li><a href="#" class="dropdown-item">Graphic Design</a></li>
 					<li><a href="#" class="dropdown-item">Digital Marketing</a></li>
 				</ul>
-			</li>
-			<li class="nav-item"><a href="registration.php" class="nav-link">Register</a></li>
-			<li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
+			</li> -->
+			<li class="nav-item"><a href="index.php" class="nav-link">Login</a></li>
 			<li class="nav-item active"><a href="customer_contact.php" class="nav-link">Contact</a></li>
+			<li class="nav-item"><a href="sIndex.php" class="nav-link">Staff Login</a></li>
 		</ul>
 		<form class="navbar-form form-inline navbar-right ml-auto">
 			<div class="input-group search-box">

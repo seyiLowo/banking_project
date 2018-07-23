@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Contact Us</title>
+	<title>Contact an Admin</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Courgette|Pacifico:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -197,8 +197,8 @@
 				</ul>
 			</li>
 			<li class="nav-item"><a href="admin_registration.php" class="nav-link">Register</a></li>
-			<li class="nav-item"><a href="index.php" class="nav-link">Login</a></li>
-			<li class="nav-item active"><a href="admin_contact" class="nav-link">Contact</a></li>
+			<li class="nav-item"><a href="sIndex.php" class="nav-link">Login</a></li>
+			<li class="nav-item active"><a href="admin_contact.php" class="nav-link">Contact</a></li>
 		</ul>
 		<form class="navbar-form form-inline navbar-right ml-auto">
 			<div class="input-group search-box">
@@ -216,7 +216,7 @@
 		<div class="col-md-8 col-md-offset-2 m-auto">
 			<div class="contact-form">
 				<h1>Get in Touch</h1>
-				<form action="/examples/actions/confirmation.php" method="post">
+				<form action="#" method="post">
 					<div class="row">
 						<div class="col-sm-6">
 							<div class="form-group">

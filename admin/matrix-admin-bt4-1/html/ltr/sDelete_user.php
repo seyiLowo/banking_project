@@ -1,15 +1,21 @@
-<?php session_start();
+<?php
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+
+  require ('sConn.php');
+
 	// $delete_mail = $_POST['delete_email'];
 	// $fname = $_POST['firstname'];
 	// $lname = $_POST['lastname'];
 	// $email = $_POST['email'];
 	// $password = $_POST['npassword'];
 	$nfname = $_POST['nfirstname'];
-	// $nlname = $_POST['nlastname'];
-	// $nemail = $_POST['nemail'];
-	// $npassword = $_POST['npassword'];
+	$nlname = $_POST['nlastname'];
+	$nemail = $_POST['nemail'];
+	$npassword = $_POST['npassword'];
 
-$con = mysqli_connect("localhost", "root", "", "class110618");
 
 // $user = mysqli_query($con, "select * from admin where email='$_SESSION["email"]'");
 
@@ -39,9 +45,9 @@ echo mysqli_error($con);
 // if($nfname !== ''){
 	// $rfname = mysqli_query($con, "select * from admin ");
 	// if($r1 = mysqli_fetch_array($rfname)){
-			$ufname = mysqli_query($con, "update admin set first_name = '$nfname' where email = '$_SESSION[email]' ");
-			echo "First Name Updated!";
-			echo mysqli_error($con);
+			// $ufname = mysqli_query($con, "update admin set first_name = '$nfname' where email = '$_SESSION[email]' ");
+			// echo "First Name Updated!";
+			// echo mysqli_error($con);
 	// }
 	// else{
 	// 	echo "Firstname not Found!".mysqli_error($con);

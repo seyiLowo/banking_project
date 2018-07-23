@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>KB-Admin Login</title>
+	<title>Customer Login</title>
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -45,7 +45,7 @@
 		}
 		.navbar .navbar-brand b {
 			font-weight: bold;
-			color: #f21d11;
+			color: #f04f01;
 		}
 		.navbar ul.nav li {
 			font-size: 96%;
@@ -53,7 +53,7 @@
 			text-transform: uppercase;
 		}
 		.navbar ul.nav li.active a, .navbar ul.nav li.active a:hover, .navbar ul.nav li.active a:focus {
-			color: #f21d11 !important;
+			color: #f04f01 !important;
 			background: transparent !important;
 		}
 		.search-box {
@@ -67,13 +67,13 @@
 			padding-left: 4px;		
 		}
 		.search-box input.form-control:focus {
-			border-color: #f21d11;
+			border-color: #f04f01;
 			box-shadow: 0 0 8px rgba(240,79,1,0.2);
 		}
 		.search-box .btn-primary, .search-box .btn-primary:active {
 			font-weight: bold;
-			background: #f21d11;
-			border-color: #f21d11;
+			background: #f04f01;
+			border-color: #f04f01;
 			text-transform: uppercase;
 			min-width: 90px;
 		}
@@ -108,7 +108,7 @@
 			font-size: 14px;
 		}
 		.navbar .dropdown-menu li a:hover, .navbar .dropdown-menu li a:active {
-			color:#f21d11;
+			color: #333;
 		}
 		.navbar .navbar-form {
 			border: none;
@@ -125,10 +125,9 @@
 		}
 
 
-
 		.btn-primary{
-			background: #f21d11 !important; 
-			border-color: #f21d11 !important;
+			background: #f04f01 !important; 
+			border-color: #f04f01 !important;
 			min-width: 90px;
 		}
 		.btn-primary:focus{
@@ -141,10 +140,10 @@
 			margin: 120px auto;
 		}
 		.login-form a{
-			color:#f21d11;
+			color:#f04f01;
 		}
 		.form-control:focus{
-			border-color: #f21d11;
+			border-color: #f04f01;
 		}
 	    .login-form form {        
 	    	margin-bottom: 15px;
@@ -154,7 +153,7 @@
 	    }
 	    .login-form h2 {
 	        margin: 0 0 15px;
-	        color: #f21d11;
+	        color: #f04f01;
 	    }
 	    .form-control, .btn {
 	        min-height: 38px;
@@ -187,9 +186,20 @@
 
 	<div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
 		<ul class="nav navbar-nav">
-			<li class="nav-item"><a href="#" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+			<li class="nav-item"><a href="#" class="nav-link">About</a></li>			
+			<!-- <li class="nav-item dropdown">
+				<a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Services <b class="caret"></b></a>
+				<ul class="dropdown-menu">					
+					<li><a href="#" class="dropdown-item">Web Design</a></li>
+					<li><a href="#" class="dropdown-item">Web Development</a></li>
+					<li><a href="#" class="dropdown-item">Graphic Design</a></li>
+					<li><a href="#" class="dropdown-item">Digital Marketing</a></li>
+				</ul>
+			</li> -->
 			<li class="nav-item active"><a href="index.php" class="nav-link">Login</a></li>
-			<li class="nav-item"><a href="admin_contact.php" class="nav-link">Contact</a></li>
+			<li class="nav-item"><a href="customer_contact.php" class="nav-link">Contact</a></li>
+			<li class="nav-item"><a href="sIndex.php" class="nav-link">Staff Login</a></li>
 		</ul>
 		<form class="navbar-form form-inline navbar-right ml-auto">
 			<div class="input-group search-box">
@@ -203,7 +213,7 @@
 </nav>
 
 <div class="login-form">
-    <form action="http://localhost/class110618/admin/matrix-admin-bt4-1/html/ltr/admin_process_login.php" method="post">
+    <form action="cust_process_login.php" method="post">
         <h2 class="text-center">
         	Sign In <br />
         	<center><font color="red"><h5>
@@ -234,7 +244,6 @@
             <a href="#" class="pull-right">Forgot Password?</a>
         </div>        
     </form>
-    <!-- <p class="text-center small">Don't have an account! <a href="admin_registration.php">Sign up here</a>.</p> -->
 </div>
 </body>
 </html>                            

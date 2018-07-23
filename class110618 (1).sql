@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2018 at 03:17 PM
+-- Generation Time: Jul 23, 2018 at 06:34 PM
 -- Server version: 5.7.14
 -- PHP Version: 7.0.10
 
@@ -32,18 +32,18 @@ CREATE TABLE `admin` (
   `last_name` varchar(250) NOT NULL,
   `email` varchar(250) NOT NULL,
   `password` varchar(250) NOT NULL,
-  `contact` varchar(11) NOT NULL
+  `contact` varchar(11) NOT NULL,
+  `created_by` varchar(255) NOT NULL,
+  `creation_date` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_id`, `first_name`, `last_name`, `email`, `password`, `contact`) VALUES
-(6, 'seyi', 'lowo', 'seyilowo@gmail.com', '12', '07062385044'),
-(14, 'sdfs', 'xczscsad', 'scdfo71@hotmail.com', '12', '0'),
-(12, 'bolu', 'bola', 'bolubola@me.com', '12', '07076473389'),
-(13, 'scfa', 'xcsd', 'sid5171@hotmail.com', '12', '0');
+INSERT INTO `admin` (`admin_id`, `first_name`, `last_name`, `email`, `password`, `contact`, `created_by`, `creation_date`) VALUES
+(6, 'seyi', 'lowo', 'seyilowo@gmail.com', '12', '07062385044', '', ''),
+(16, 'Oluwaseyi', 'Lowo', 'oyelowoseyi@yahoo.com', '15', '08096764774', 'seyilowo@gmail.com', '2018-07-23 06:30:03pm');
 
 -- --------------------------------------------------------
 
@@ -56,15 +56,20 @@ CREATE TABLE `class110618` (
   `first_name` varchar(1000) NOT NULL,
   `last_name` varchar(1000) NOT NULL,
   `email` varchar(1000) NOT NULL,
-  `password` varchar(1000) NOT NULL
+  `password` varchar(1000) NOT NULL,
+  `account_number` varchar(255) NOT NULL,
+  `account_type` varchar(255) NOT NULL,
+  `phone_number` varchar(255) NOT NULL,
+  `staff_email` varchar(255) NOT NULL,
+  `creation_date` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `class110618`
 --
 
-INSERT INTO `class110618` (`customer_id`, `first_name`, `last_name`, `email`, `password`) VALUES
-(1, 'seyi', 'lowo', 'seyilowo@gmail.com', '13');
+INSERT INTO `class110618` (`customer_id`, `first_name`, `last_name`, `email`, `password`, `account_number`, `account_type`, `phone_number`, `staff_email`, `creation_date`) VALUES
+(7, 'Oluwaseyi', 'Oyelowo', 'seyimc2008@yahoo.com', '13', '0165676086', 'Savings', '08188059535', 'seyilowo@gmail.com', '2018-07-23 06:25:44pm');
 
 -- --------------------------------------------------------
 
@@ -75,8 +80,8 @@ INSERT INTO `class110618` (`customer_id`, `first_name`, `last_name`, `email`, `p
 CREATE TABLE `transactions` (
   `transaction_id` int(255) NOT NULL,
   `customer_email` varchar(255) NOT NULL,
-  `withdrawal` varchar(255) NOT NULL DEFAULT '-',
-  `deposit` varchar(255) NOT NULL DEFAULT '-',
+  `withdrawal` varchar(255) NOT NULL DEFAULT '0',
+  `deposit` varchar(255) NOT NULL DEFAULT '0',
   `balance` varchar(255) NOT NULL,
   `time` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -86,9 +91,8 @@ CREATE TABLE `transactions` (
 --
 
 INSERT INTO `transactions` (`transaction_id`, `customer_email`, `withdrawal`, `deposit`, `balance`, `time`) VALUES
-(6, 'seyilowo@gmail.com', '-', '100000', '100000', '2018-07-18 11:37:44pm'),
-(7, 'seyilowo@gmail.com', '-', '500', '100500', '2018-07-18 11:39:58pm'),
-(8, 'seyilowo@gmail.com', '300', '-', '100200', '2018-07-18 11:40:55pm');
+(9, 'seyilowo@gmail.com', '0', '50000', '50000', '2018-07-23 06:11:48pm'),
+(10, 'seyilowo@gmail.com', '20000', '0', '30000', '2018-07-23 06:12:05pm');
 
 --
 -- Indexes for dumped tables
@@ -106,7 +110,8 @@ ALTER TABLE `admin`
 --
 ALTER TABLE `class110618`
   ADD PRIMARY KEY (`customer_id`),
-  ADD UNIQUE KEY `email` (`email`);
+  ADD UNIQUE KEY `email` (`email`),
+  ADD UNIQUE KEY `account_number` (`account_number`);
 
 --
 -- Indexes for table `transactions`
@@ -122,17 +127,17 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `admin_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `admin_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `class110618`
 --
 ALTER TABLE `class110618`
-  MODIFY `customer_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `transaction_id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

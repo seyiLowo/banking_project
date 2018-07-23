@@ -3,7 +3,8 @@ if(!isset($_SESSION))
     {
         session_start();
     }
-require ('conn.php');
+
+require ('sConn.php');
 
 $nfname = $_POST['nfname'];
 $nlname = $_POST['nlname'];
