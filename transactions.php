@@ -29,7 +29,7 @@
             }
            .navbar-brand b {
                 font-weight: bold;
-                color: #f21d11;
+                color: orange;
                 font-size: 20px;
                 
             }
@@ -136,6 +136,10 @@
                                                         <th>Transaction Date</th>
                                                         <th>Withdrawal</th>
                                                         <th>Deposits</th>
+                                                        <th>Transferred Amount</th>
+                                                        <th>Transferred To</th>
+                                                        <th>Received Amount</th>
+                                                        <th>Reeceived From</th>
                                                         <th>Balance</th>
                                                     </tr>
                                                 </thead>
@@ -148,8 +152,11 @@
                                                         <td>".$row['time']."</td>
                                                         <td>".'N'.$row['withdrawal']."</td>
                                                         <td>".'N'.$row['deposit']."</td>
+                                                        <td>".'N'.$row['transfer_amount']."</td>
+                                                        <td>".$row['transfer_to']."</td>
+                                                        <td>".'N'.$row['received_amount']."</td>
+                                                        <td>".$row['received_from']."</td>
                                                         <td>".'N'.$row['balance']."</td>
-                                                        
                                                     </tr>";
 
                                                 $i++;

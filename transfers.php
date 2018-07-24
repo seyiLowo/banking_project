@@ -29,7 +29,7 @@
             }
            .navbar-brand b {
                 font-weight: bold;
-                color: #f21d11;
+                color: orange;
                 font-size: 20px;
                 
             }
@@ -135,7 +135,7 @@
                                         </h5></font></center>
                                         <div class="form-group row">
                                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">User Email</label>
-                                            <div class="col-sm-9">
+                                            <div class="col-sm-6">
                                                 <input type="text" class="form-control" id="email" name="email" readonly="readonly" value="<?php
                                                     echo $_SESSION['email'];
                                                 ?>">
@@ -144,22 +144,57 @@
 
                                         <div class="form-group row">
                                             <label for="fname" class="col-sm-3 text-right control-label col-form-label">Withdraw</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="fname" placeholder="Withdrawal Amount" name="wAmount">
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="" placeholder="Withdrawal Amount" name="wAmount">
                                             </div>
                                         </div>
                                         
                                         <div class="form-group row">
                                             <label for="lname" class="col-sm-3 text-right control-label col-form-label">Deposit</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" class="form-control" id="lname" placeholder="Deposit Amount" name="dAmount">
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="" placeholder="Deposit Amount" name="dAmount">
                                             </div>
                                         </div>                                    
                                     </div>
 
                                     <div>
                                         <div class="card-body">
-                                            <button type="submit" class="btn btn-primary">Transact</button>
+                                            <center><button type="submit" class="btn btn-warning btn-rounded">Transact</button></center>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="card">
+                                <form class="form-horizontal" action="transfer.php" method="post">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Transfer</h4>
+                                        <center><font color="red"><h5>
+                                            <?php
+                                                if(isset($tMssg)){
+                                                    echo $tMssg;
+                                                }
+                                            ?>
+                                        </h5></font></center>
+                                        
+                                        <div class="form-group row">
+                                            <label for="fname" class="col-sm-3 text-right control-label col-form-label">Amount</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="" placeholder="Transfer Amount" name="amount">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group row">
+                                            <label for="lname" class="col-sm-3 text-right control-label col-form-label">Account Number</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="" placeholder="Recepient's Account Number" name="aNumber">
+                                            </div>
+                                        </div>                                    
+                                    </div>
+
+                                    <div>
+                                        <div class="card-body">
+                                            <center><button type="submit" class="btn btn-warning btn-rounded">Transfer</button></center>
                                         </div>
                                     </div>
                                 </form>

@@ -29,7 +29,7 @@ require ('sConn.php');
             }
            .navbar-brand b {
                 font-weight: bold;
-                color: #f21d11;
+                color: orange;
                 font-size: 20px;                
             }
             .btn{
@@ -121,6 +121,140 @@ require ('sConn.php');
             </div>
     
             <div class="container-fluid">
+                 <div class="row"><center>
+                    <div class="col-md-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="d-md-flex align-items-center">
+                                    <div>
+                                        <!-- <h4 class="card-title">Dashboard 2</h4> -->
+                                        <h5 class="card-subtitle">Account Details</h5>
+                                    </div>
+                                </div>
+                                <div class="row"><center>
+                                    <!-- column -->
+                                    <div class="col-lg-9">
+                                        <div class="row">
+                                            <div class="col-12 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-user m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5"><?php echo $_SESSION['email']; ?></h5>
+                                                   <small class="font-light">User Email</small>
+                                                </div>
+                                            </div>
+                                             <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-plus m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                       <?php
+                                                            $email = $_SESSION['email'];
+                                                            $fname =  mysqli_query($con, "select first_name from class110618 where email = '$email'");
+                                                            $fname2 = mysqli_fetch_array($fname);
+                                                            $dfname = $fname2['first_name'];
+                                                            echo $dfname;
+                                                        ?>
+                                                   </h5>
+                                                   <small class="font-light">First Name</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-cart-plus m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                        <?php
+                                                            $email = $_SESSION['email'];
+                                                            $lname =  mysqli_query($con, "select last_name from class110618 where email = '$email'");
+                                                            $lname2 = mysqli_fetch_array($lname);
+                                                            $dlname = $lname2['last_name'];
+                                                            echo $dlname;
+                                                        ?>
+                                                   </h5>
+                                                   <small class="font-light">Last Name</small>
+                                                </div>
+                                            </div>
+                                             <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-tag m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                       <?php
+                                                            $email = $_SESSION['email'];
+                                                            $pno =  mysqli_query($con, "select phone_number from class110618 where email = '$email'");
+                                                            $pno2 = mysqli_fetch_array($pno);
+                                                            $dpno = $pno2['phone_number'];
+                                                            echo $dpno;
+                                                        ?>
+                                                   </h5>
+                                                   <small class="font-light">Contact Number</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-table m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                   <?php
+                                                        $email = $_SESSION['email'];
+                                                        $at =  mysqli_query($con, "select account_type from class110618 where email = '$email'");
+                                                        $at2 = mysqli_fetch_array($at);
+                                                        $dat = $at2['account_type'];
+                                                        echo $dat;
+                                                    ?>
+                                                    </h5>
+                                                   <small class="font-light">Account Type</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-tag m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                        <?php
+                                                            $email = $_SESSION['email'];
+                                                            $ano =  mysqli_query($con, "select account_number from class110618 where email = '$email'");
+                                                            $ano2 = mysqli_fetch_array($ano);
+                                                            $dano = $ano2['account_number'];
+                                                            echo $dano;
+                                                        ?>
+                                                   </h5>
+                                                   <small class="font-light">Account Number</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-6 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-table m-b-5 font-16"></i>
+                                                   <h5 class="m-b-0 m-t-5">
+                                                       <?php
+                                                            $email = $_SESSION['email'];
+                                                            $se =  mysqli_query($con, "select staff_email from class110618 where email = '$email'");
+                                                            $se2 = mysqli_fetch_array($se);
+                                                            $dse = $se2['staff_email'];
+                                                            echo $dse;
+                                                        ?>
+                                                   </h5>
+                                                   <small class="font-light">Account Manager</small>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 m-t-15">
+                                                <div class="bg-dark p-10 text-white text-center">
+                                                   <i class="fa fa-globe m-b-5 font-16"></i>
+                                                   <font color="orange"><h5 class="m-b-0 m-t-5">
+                                                    <?php
+                                                        $email = $_SESSION['email'];
+                                                        $lBalance =  mysqli_query($con, "select balance from transactions where customer_email = '$email' order by transaction_id desc limit 1");
+                                                        $lBalance2 = mysqli_fetch_array($lBalance);
+                                                        $balance = $lBalance2['balance'];
+                                                        echo 'N' . $balance;
+                                                    ?>
+                                                   </h5></font>
+                                                   <small class="font-light">Account Balance</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div></center>
+                                </div>
+                            </div>
+                        </div>
+                    </div></center>
+                </div>
+
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
@@ -139,7 +273,7 @@ require ('sConn.php');
                                         <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Account Balance</label>
                                         <div class="col-sm-9">
                                             <input type="text" class="form-control" id="cono1" readonly="readonly" value="<?php
-                                                $lBalance =  mysqli_query($con, "select balance from transactions order by transaction_id desc limit 1");
+                                                $lBalance =  mysqli_query($con, "select balance from transactions  where customer_email = '$email' order by transaction_id desc limit 1");
                                                 $lBalance2 = mysqli_fetch_array($lBalance);
                                                 $balance = $lBalance2['balance'];
                                                 echo 'N' . $balance;
