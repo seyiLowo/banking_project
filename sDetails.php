@@ -1,3 +1,10 @@
+<?php 
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -8,8 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>KB-Edit my account</title>
-    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="dist/css/style.min.css" rel="stylesheet">
 
     <style>
         .navbar-brand {
@@ -29,12 +36,6 @@
             }
     </style>
 </head>
-<?php 
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
-?>
 
 <body>    
     <div id="main-wrapper">
@@ -82,7 +83,7 @@
                    
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                                 <?php
                                     echo "Welcome, ".$_SESSION['email'];
                                 ?>
@@ -215,30 +216,30 @@
             </div>
         </div>
     </div>
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
+    <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+    <script src="dist/js/custom.min.js"></script>
     <!-- This Page JS -->
-    <script src="../../assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
-    <script src="../../dist/js/pages/mask/mask.init.js"></script>
-    <script src="../../assets/libs/select2/dist/js/select2.full.min.js"></script>
-    <script src="../../assets/libs/select2/dist/js/select2.min.js"></script>
-    <script src="../../assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
-    <script src="../../assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
-    <script src="../../assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
-    <script src="../../assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
-    <script src="../../assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-    <script src="../../assets/libs/quill/dist/quill.min.js"></script>
+    <script src="assets/libs/inputmask/dist/min/jquery.inputmask.bundle.min.js"></script>
+    <script src="dist/js/pages/mask/mask.init.js"></script>
+    <script src="assets/libs/select2/dist/js/select2.full.min.js"></script>
+    <script src="assets/libs/select2/dist/js/select2.min.js"></script>
+    <script src="assets/libs/jquery-asColor/dist/jquery-asColor.min.js"></script>
+    <script src="assets/libs/jquery-asGradient/dist/jquery-asGradient.js"></script>
+    <script src="assets/libs/jquery-asColorPicker/dist/jquery-asColorPicker.min.js"></script>
+    <script src="assets/libs/jquery-minicolors/jquery.minicolors.min.js"></script>
+    <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="assets/libs/quill/dist/quill.min.js"></script>
 </body>
 
 </html>

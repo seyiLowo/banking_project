@@ -1,3 +1,10 @@
+<?php 
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+ ?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -7,9 +14,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>KB-Register New Staff</title>
-    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <title>KB-Register New Client</title>
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="dist/css/style.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -115,12 +122,6 @@
             }
     </style>
 </head>
-<?php 
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
- ?>
 
 <body>
     <div id="main-wrapper">
@@ -155,7 +156,7 @@
 
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                                 <?php
                                     echo "Welcome, ".$_SESSION['email'];
                                 ?>
@@ -196,7 +197,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Create a Staff Account</h4>
+                        <h4 class="page-title">Create a Client Account</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -214,7 +215,7 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="signup-form">
-                                <form  action="admin_process.php" method="POST">
+                                <form  action="process.php" method="POST">
                                     <center><font color="red"><h5>
                                         <?php
                                             if(isset($Mssg)){
@@ -223,7 +224,7 @@
                                         ?>
                                     </h5></font></center>
                                     <h3>Register</h3>
-                                    <p class="hint-text">Create a Staff Account</p>
+                                    <p class="hint-text">Create a Client Account</p>
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-xs-6"><input type="text" class="form-control" name="firstname" placeholder="First Name" required="required"></div>
@@ -235,6 +236,12 @@
                                     </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" required="required" maxlength="11">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="accountNumber" placeholder="Account Number" required="required" maxlength="10">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="accountType" placeholder="Account Type" required="required">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
@@ -251,29 +258,29 @@
         </div>
     </div>
 
-     <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
+    <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+    <script src="dist/js/custom.min.js"></script>
     <!--This page JavaScript -->
-    <!-- <script src="../../dist/js/pages/dashboards/dashboard1.js"></script> -->
+    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
     <!-- Charts js Files -->
-    <script src="../../assets/libs/flot/excanvas.js"></script>
-    <script src="../../assets/libs/flot/jquery.flot.js"></script>
-    <script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="../../assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="../../assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="../../dist/js/pages/chart/chart-page-init.js"></script>
+    <script src="assets/libs/flot/excanvas.js"></script>
+    <script src="assets/libs/flot/jquery.flot.js"></script>
+    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="dist/js/pages/chart/chart-page-init.js"></script>
 </body>
 
 </html>

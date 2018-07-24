@@ -1,3 +1,10 @@
+<?php 
+    if(!isset($_SESSION))
+    {
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -8,8 +15,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>KB-Client List</title>
-    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <link href="../../dist/css/style.min.css" rel="stylesheet">
+    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+    <link href="dist/css/style.min.css" rel="stylesheet">
 
     <style>
             .navbar-brand {
@@ -26,12 +33,6 @@
             }
     </style>
 </head>
-<?php 
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
-?>
 
 <body>
     <div id="main-wrapper">
@@ -71,7 +72,7 @@
                     </ul>
                     <ul class="navbar-nav float-right">                      
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                                 <?php
                                     echo "Welcome, ".$_SESSION['email'];
                                 ?>
@@ -184,23 +185,23 @@ echo"</tbody>";
         </div>
     </div>
 
-    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../../assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="../../dist/js/waves.js"></script>
+    <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../../dist/js/sidebarmenu.js"></script>
+    <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../../dist/js/custom.min.js"></script>
+    <script src="dist/js/custom.min.js"></script>
     <!-- this page js -->
-    <script src="../../assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-    <script src="../../assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="../../assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
     <script>
         /****************************************
          *       Basic Table                   *
