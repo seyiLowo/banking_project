@@ -36,11 +36,12 @@ echo mysqli_error($con);
 if($amount!== ''){
 	if($balance !== ''){
 		$nBalance = $balance - $amount;
-		$sent = mysqli_query($con, "insert into transactions (transfer_amount, balance, time, customer_email, account_number, transfer_to) values('$amount', '$nBalance', '$date', '$customer_email', '$accN', '$aNumber')");
+		$sent = mysqli_query($con, "insert into transactions (transfer_amount, balance, time, customer_email, account_number, transfer_to, debit, description) values('$amount', '$nBalance', '$date', '$customer_email', '$accN', '$aNumber','$amount', 'Transferred to $aNumber')");
 
 		$nrBalance = $R + $amount;
-		$received = mysqli_query($con, "insert into transactions (received_amount, balance, time, customer_email, account_number, received_from) values('$amount', '$nrBalance', '$date', '$rEmail', '$aNumber', '$accN')");
+		$received = mysqli_query($con, "insert into transactions (received_amount, balance, time, customer_email, account_number, received_from, credit, description) values('$amount', '$nrBalance', '$date', '$rEmail', '$aNumber', '$accN','$amount', 'Received from $accN')");
 		$tMssg = 'Transfer Successful!';
+
 		include('transfers.php');
 	}
 	echo mysqli_error($con);

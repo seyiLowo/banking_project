@@ -134,12 +134,9 @@
                                                 "<thead>
                                                     <tr>
                                                         <th>Transaction Date</th>
-                                                        <th>Withdrawal</th>
-                                                        <th>Deposits</th>
-                                                        <th>Transferred Amount</th>
-                                                        <th>Transferred To</th>
-                                                        <th>Received Amount</th>
-                                                        <th>Reeceived From</th>
+                                                        <th>Debit</th>
+                                                        <th>Credit</th>
+                                                        <th>Description</th>
                                                         <th>Balance</th>
                                                     </tr>
                                                 </thead>
@@ -150,15 +147,11 @@
                                                 echo
                                                     "<tr>
                                                         <td>".$row['time']."</td>
-                                                        <td>".'N'.$row['withdrawal']."</td>
-                                                        <td>".'N'.$row['deposit']."</td>
-                                                        <td>".'N'.$row['transfer_amount']."</td>
-                                                        <td>".$row['transfer_to']."</td>
-                                                        <td>".'N'.$row['received_amount']."</td>
-                                                        <td>".$row['received_from']."</td>
+                                                        <td>".'N'.$row['debit']."</td>
+                                                        <td>".'N'.$row['credit']."</td>
+                                                        <td>".$row['description']."</td>
                                                         <td>".'N'.$row['balance']."</td>
                                                     </tr>";
-
                                                 $i++;
                                             }
 

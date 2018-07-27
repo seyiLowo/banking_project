@@ -235,7 +235,7 @@ require ('sConn.php');
                                             <div class="col-12 m-t-15">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                    <i class="fa fa-globe m-b-5 font-16"></i>
-                                                   <font color="orange"><h5 class="m-b-0 m-t-5">
+                                                   <font color="orange"><h3 class="m-b-0 m-t-5">
                                                     <?php
                                                         $email = $_SESSION['email'];
                                                         $lBalance =  mysqli_query($con, "select balance from transactions where customer_email = '$email' order by transaction_id desc limit 1");
@@ -243,7 +243,7 @@ require ('sConn.php');
                                                         $balance = $lBalance2['balance'];
                                                         echo 'N' . $balance;
                                                     ?>
-                                                   </h5></font>
+                                                   </h3></font>
                                                    <small class="font-light">Account Balance</small>
                                                 </div>
                                             </div>
@@ -253,110 +253,6 @@ require ('sConn.php');
                             </div>
                         </div>
                     </div></center>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <form class="form-horizontal" action="cUpdate_pdetails.php" method="post">
-                                <div class="card-body">
-                                    <h4 class="card-title"></h4>
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">User Email</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="email" name="email" readonly="readonly" value="<?php
-                                                echo $_SESSION['email'];
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Account Balance</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1" readonly="readonly" value="<?php
-                                                $lBalance =  mysqli_query($con, "select balance from transactions  where customer_email = '$email' order by transaction_id desc limit 1");
-                                                $lBalance2 = mysqli_fetch_array($lBalance);
-                                                $balance = $lBalance2['balance'];
-                                                echo 'N' . $balance;
-                                            ?>
-                                            ">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">First Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="fname" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $fname =  mysqli_query($con, "select first_name from class110618 where email = '$email'");
-                                                $fname2 = mysqli_fetch_array($fname);
-                                                $dfname = $fname2['first_name'];
-                                                echo $dfname;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Last Name</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="lname" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $lname =  mysqli_query($con, "select last_name from class110618 where email = '$email'");
-                                                $lname2 = mysqli_fetch_array($lname);
-                                                $dlname = $lname2['last_name'];
-                                                echo $dlname;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contact No</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="cono1" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $pno =  mysqli_query($con, "select phone_number from class110618 where email = '$email'");
-                                                $pno2 = mysqli_fetch_array($pno);
-                                                $dpno = $pno2['phone_number'];
-                                                echo $dpno;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Account No</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $ano =  mysqli_query($con, "select account_number from class110618 where email = '$email'");
-                                                $ano2 = mysqli_fetch_array($ano);
-                                                $dano = $ano2['account_number'];
-                                                echo $dano;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Account Type</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $at =  mysqli_query($con, "select account_type from class110618 where email = '$email'");
-                                                $at2 = mysqli_fetch_array($at);
-                                                $dat = $at2['account_type'];
-                                                echo $dat;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Account Manager</label>
-                                        <div class="col-sm-9">
-                                            <input type="text" class="form-control" id="" readonly="readonly" value="<?php
-                                                $email = $_SESSION['email'];
-                                                $se =  mysqli_query($con, "select staff_email from class110618 where email = '$email'");
-                                                $se2 = mysqli_fetch_array($se);
-                                                $dse = $se2['staff_email'];
-                                                echo $dse;
-                                            ?>">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
