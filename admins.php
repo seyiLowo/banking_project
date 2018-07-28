@@ -1,72 +1,67 @@
-<?php 
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
+<?php
+if(!isset($_SESSION))
+{
+session_start();
+}
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>KB-Staff List</title>
-    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <link href="dist/css/style.min.css" rel="stylesheet">
-
-    <style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>KB-Staff List</title>
+        <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+        <link href="dist/css/style.min.css" rel="stylesheet">
+        <style>
         .navbar-brand {
-                color: #555;
-                font-size: 20px;
-                font-family: 'Raleway', sans-serif;
-                text-transform: uppercase;
-                font-size: 26px;
-            }
-           .navbar-brand b {
-                font-weight: bold;
-                color: #f21d11;
-                font-size: 20px;
-                
-            }
-    </style>
-</head>
-
-<body>
-    <div id="main-wrapper">
-
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin5">
-                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    <a class="navbar-brand" href="index2.php">
-                        <b class="logo-icon p-l-10">
-                        </b>
-                        <span class="logo-text">
-                             <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>
-                        </span>
-                    </a>
-                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
-                </div>
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                    <ul class="navbar-nav float-left mr-auto">
-                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li> -->
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+        color: #555;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+        font-size: 26px;
+        }
+        .navbar-brand b {
+        font-weight: bold;
+        color: #f21d11;
+        font-size: 20px;
+        
+        }
+        </style>
+    </head>
+    <body>
+        <div id="main-wrapper">
+            <header class="topbar" data-navbarbg="skin5">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <div class="navbar-header" data-logobg="skin5">
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                        <a class="navbar-brand" href="index2.php">
+                            <b class="logo-icon p-l-10">
+                            </b>
+                            <span class="logo-text">
+                                <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>
+                            </span>
+                        </a>
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                    </div>
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                        <ul class="navbar-nav float-left mr-auto">
+                            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                                    <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li> -->
+                            <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search position-absolute">
                                 <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
@@ -77,7 +72,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                                 <?php
-                                    echo "Welcome, ".$_SESSION['email'];
+                                echo "Welcome, ".$_SESSION['email'];
                                 ?>
                             </a>
                             <span>
@@ -101,7 +96,7 @@
         </header>
         <aside class="left-sidebar" data-sidebarbg="skin5">
             <div class="scroll-sidebar">
-                 <nav class="sidebar-nav">
+                <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="clients.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Client List</span></a></li>
@@ -138,38 +133,35 @@
                                 <div class="table-responsive">
                                     <table id="zero_config" class="table table-striped table-bordered">
                                         <?php
-                                            require ('sConn.php');
-                                            $staffEmail = $_SESSION['email'];
-                                            $customer = mysqli_query($con, "select * from admin where created_by = '$staffEmail'");
-                                            echo
-                                                "<thead>
-                                                    <tr>
-                                                        <th>Firstname</th>
-                                                        <th>Lastname</th>
-                                                        <th>Email</th>
-                                                        <th>Phone Number</th>                                                        
-                                                    </tr>
-                                                </thead>
-                                                <tbody>";
-
+                                        require ('sConn.php');
+                                        $staffEmail = $_SESSION['email'];
+                                        $customer = mysqli_query($con, "select * from admin where created_by = '$staffEmail'");
+                                        echo
+                                        "<thead>
+                                            <tr>
+                                                <th>Staff Name</th>
+                                                <th>Email</th>
+                                                <th>Phone Number</th>
+                                                <th>Edit Details</th>
+                                                <th>Terminate Employment</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>";
                                             $i=0;
-                                            while($row = mysqli_fetch_array($customer)){
-                                                echo
-                                                    "<tr>
-                                                        <td>".$row['first_name']."</td>
-                                                        <td>".$row['last_name']."</td>
-                                                        <td>".$row['email']."</td>
-                                                        <td>".$row['contact']."</td>
-                                                    </tr>";
-
-                                                   
-                                                $i++;
-                                            }
-                                            echo"</tbody>";
-                                        ?>
+                                            while($row = mysqli_fetch_array($customer)):{
+                                            echo
+                                            "<tr>
+                                                <td class=''>".$row['first_name']." ".$row['last_name']."</td>
+                                                <td>".$row['email']."</td>
+                                                <td>".$row['contact']."</td>";}
+                                                ?>
+                                                <td><a href="" class="btn btn-success">Edit</a></td>
+                                                <td><a href="admin_tab_ed.php?id=<?php echo $row['admin_id']; ?>" class="btn btn-danger">Delete</a></td>
+                                            </tr>
+                                            <?php endwhile; ?>
+                                        </tbody>
                                     </table>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -195,9 +187,7 @@
     <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
     <script>
-        $('#zero_config').DataTable();
+    $('#zero_config').DataTable();
     </script>
-
 </body>
-
 </html>

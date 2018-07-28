@@ -17,7 +17,7 @@
 	$flag = true;
 	if($r = mysqli_fetch_array($result))
 	{
-    include('index2.php');
+    header('location: index2.php');
 		$flag = false;
 	}
 	else if($flag)
