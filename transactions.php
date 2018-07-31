@@ -94,8 +94,8 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="cDashboard.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="transactions.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Transactions</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="transfers.php" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Transfer</span></a></li>
-                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="dUpdate.php" aria-expanded="false"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Edit Account Details </span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="transfers.php" aria-expanded="false"><i class="fas fa-paper-plane"></i><span class="hide-menu">Transfer</span></a></li>
+                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="dUpdate.php" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu"> Edit Account Details </span></a></li>
                     </ul>
                 </nav>
             </div>

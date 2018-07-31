@@ -11,7 +11,7 @@ $dAmount = $_POST['dAmount'];
 $customer_email = $_SESSION['email'];
 $date = date("Y-m-d h:i:sa");
 
-$lBalance =  mysqli_query($con, "select * from transactions order by transaction_id desc limit 1");
+$lBalance =  mysqli_query($con, "select * from transactions where customer_email = '$customer_email' order by transaction_id desc limit 1");
 $lBalance2 = mysqli_fetch_array($lBalance);
 $balance = $lBalance2['balance'];
 
@@ -24,13 +24,16 @@ $aN = $an2['account_number'];
 echo mysqli_error($con);
 
 if($wAmount!== ''){
-	if($balance !== ''){
+	if($balance >= $wAmount){
 		$nBalance = $balance - $wAmount;
 		$ndAmount = mysqli_query($con, "insert into transactions (withdrawal, balance, time, customer_email, account_number,  debit, description) values('$wAmount', '$nBalance', '$date', '$customer_email', '$aN', '$wAmount', 'Withdrawal by Self')");
 		$Mssg = 'Withdrawn!';
 		include('transfers.php');
 	}
-	echo mysqli_error($con);
+	else{
+		$Mssg = 'Insufficient Balance!';
+		include('transfers.php');
+	}
 }
 
 else if($dAmount!== ''){

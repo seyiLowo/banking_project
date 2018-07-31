@@ -3,6 +3,7 @@
     {
         session_start();
     }
+    require ('sConn.php');
  ?>
 
 <!DOCTYPE html>
@@ -184,10 +185,14 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="clients.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Client List</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admins.php" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Staff List</span></a></li>
-                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="sDetails.php" aria-expanded="false"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Edit Account Details </span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="sRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Staff</span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="cRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Client</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admins.php" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Staff List</span></a></li>
+                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="sDetails.php" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu"> Edit Account Details </span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple-plus"></i></i><span class="hide-menu">Register </span></a>
+                            <ul aria-expanded="false" class="collapse  first-level">
+                                <li class="sidebar-item"><a href="sRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> New Staff </span></a></li>
+                                <li class="sidebar-item"><a href="cRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> New Client </span></a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -216,13 +221,13 @@
                         <div class="card">
                             <div class="signup-form">
                                 <form  action="process.php" method="POST">
-                                    <center><font color="red"><h5>
+                                    <center><font color="red"><h4>
                                         <?php
                                             if(isset($Mssg)){
                                                 echo $Mssg;
                                             }
                                         ?>
-                                    </h5></font></center>
+                                    </h4></font></center>
                                     <h3>Register</h3>
                                     <p class="hint-text">Create a Client Account</p>
                                     <div class="form-group">
@@ -238,10 +243,26 @@
                                         <input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number" required="required" maxlength="11">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="accountNumber" placeholder="Account Number" required="required" maxlength="10">
+                                        <?php 
+                                            $r = rand(1100000000, 1199999999);
+                                            $an =  mysqli_query($con, "select account_number from class110618");
+                                            $an2 = mysqli_fetch_array($an);
+                                            $aN = $an2['account_number'];
+                                            while($r == $aN){
+                                            $r = rand(1100000000, 1199999999);
+                                            }
+                                        ?>
+                                        <input type="text" class="form-control" name="accountNumber"  required="required" readonly="" value="<?php echo $r; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="accountType" placeholder="Account Type" required="required">
+                                        <select class="select2 form-control custom-select" name="accountType" style="width: 100%; height:36px;">
+                                            <option>Account Type</option>
+                                            <optgroup label="">
+                                                <option value="Savings" name="Savings">Savings</option>
+                                                <option value="Current" name="Current">Current</option>
+                                                <option value="Fixed Deposit" name="FixedDeposit">Fixed Deposit</option>
+                                            </optgroup>
+                                        </select>
                                     </div>
                                     <div class="form-group">
                                         <input type="password" class="form-control" name="password" placeholder="Password" required="required">
@@ -281,6 +302,8 @@
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
     <script src="dist/js/pages/chart/chart-page-init.js"></script>
+
+
 </body>
 
 </html>

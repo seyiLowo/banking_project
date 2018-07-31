@@ -15,6 +15,7 @@ session_start();
         <title>KB-Client List</title>
         <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
         <link href="dist/css/style.min.css" rel="stylesheet">
+        
         <style>
         .navbar-brand {
         color: #555;
@@ -96,74 +97,84 @@ session_start();
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index2.php" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="clients.php" aria-expanded="false"><i class="fas fa-clipboard-list"></i><span class="hide-menu">Client List</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admins.php" aria-expanded="false"><i class="mdi mdi-border-inside"></i><span class="hide-menu">Staff List</span></a></li>
-                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="sDetails.php" aria-expanded="false"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> Edit Account Details </span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="sRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Staff</span></a></li>
-                        <li class="sidebar-item"><a class="sidebar-link waves-effect waves-dark sidebar-link" aria-expanded="false" href="cRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-key"></i><span class="hide-menu"> Register New Client</span></a></li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-        <div class="page-wrapper">
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Client List</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="index2.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
-                        </div>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="admins.php" aria-expanded="false"><i class="mdi mdi-file-document"></i><span class="hide-menu">Staff List</span></a></li>
+                        <li class="sidebar-item"><a  class="sidebar-link waves-effect waves-dark sidebar-link" href="sDetails.php" aria-expanded="false"><i class="mdi mdi-account-edit"></i><span class="hide-menu"> Edit Account Details </span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-multiple-plus"></i></i><span class="hide-menu">Register </span></a>
+                        <ul aria-expanded="false" class="collapse  first-level">
+                            <li class="sidebar-item"><a href="sRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> New Staff </span></a></li>
+                            <li class="sidebar-item"><a href="cRegistration2.php" class="sidebar-link"><i class="mdi mdi-account-plus"></i><span class="hide-menu"> New Client </span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </aside>
+    <div class="page-wrapper">
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-12 d-flex no-block align-items-center">
+                    <h4 class="page-title">Client List</h4>
+                    <div class="ml-auto text-right"><font color="green"><h4 id="1">
+                        <?php
+                            if(isset($Mssg)){
+                                echo $Mssg;
+                            }
+                        ?>
+                    </h4></font></div>
+                    <div class="ml-auto text-right">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index2.php">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Library</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title"></h5>
-                                <div class="table-responsive">
-                                    <table id="zero_config" class="table table-striped table-bordered">
-                                        <?php
-                                        require ('sConn.php');
-                                        $staffEmail = $_SESSION['email'];
-                                        $customer = mysqli_query($con, "select * from class110618 where staff_email = '$staffEmail'");
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title"></h5>
+                            <div class="table-responsive">
+                                <table id="zero_config" class="table table-striped table-bordered">
+                                    <?php
+                                    require ('sConn.php');
+                                    $staffEmail = $_SESSION['email'];
+                                    $customer = mysqli_query($con, "select * from class110618 where staff_email = '$staffEmail'");
+                                    echo
+                                    "<thead>
+                                        <tr>
+                                            <th>Account Name</th>
+                                            <th>Email</th>
+                                            <th>Account Number</th>
+                                            <th>Account Type</th>
+                                            <th>Phone Number</th>
+                                            <th>Creation Date</th>
+                                            <th>Edit Details</th>
+                                            <th>Close Account</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>";
+                                        $i=0;
+                                        while($row = mysqli_fetch_array($customer)):{
                                         echo
-                                        "<thead>
-                                            <tr>
-                                                <th>Account Name</th>
-                                                <th>Email</th>
-                                                <th>Account Number</th>
-                                                <th>Account Type</th>
-                                                <th>Phone Number</th>
-                                                <th>Creation Date</th>
-                                                <th>Edit Details</th>
-                                                <th>Close Account</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>";
-                                            $i=0;
-                                            while($row = mysqli_fetch_array($customer)):{
-                                            echo
-                                            "<tr>
-                                                <td class='col-md-1'>".$row['first_name']." ".$row['last_name']."</td>
-                                                <td>".$row['email']."</td>
-                                                <td>".$row['account_number']."</td>
-                                                <td>".$row['account_type']."</td>
-                                                <td>".$row['phone_number']."</td>
-                                                <td>".$row['creation_date']."</td>";}
-                                                ?>
-                                                <td><a href="" class="btn btn-success">Edit</a></td>
-                                                <td><a href="sDelete_user.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-danger">Delete</a></td>
-                                            </tr>
-                                            <?php endwhile; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        "<tr>
+                                            <td class='col-md-1'>".$row['first_name']." ".$row['last_name']."</td>
+                                            <td>".$row['email']."</td>
+                                            <td>".$row['account_number']."</td>
+                                            <td>".$row['account_type']."</td>
+                                            <td>".$row['phone_number']."</td>
+                                            <td>".$row['creation_date']."</td>";}
+                                            ?>
+                                            <td><a href="admin_cDetails.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-success">Edit</a></td>
+                                            <td><a href="sDelete_user.php?id=<?php echo $row['customer_id']; ?>" class="btn btn-danger">Close</a></td>
+                                        </tr>
+                                        <?php endwhile; ?>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -171,28 +182,29 @@ session_start();
             </div>
         </div>
     </div>
-    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="dist/js/custom.min.js"></script>
-    <!-- this page js -->
-    <script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
-    <script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
-    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
-    <script>
-    /****************************************
-    *       Basic Table                   *
-    ****************************************/
-    $('#zero_config').DataTable();
-    </script>
+</div>
+<script src="assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+<script src="assets/extra-libs/sparkline/sparkline.js"></script>
+<!--Wave Effects -->
+<script src="dist/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="dist/js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="dist/js/custom.min.js"></script>
+<!-- this page js -->
+<script src="assets/extra-libs/multicheck/datatable-checkbox-init.js"></script>
+<script src="assets/extra-libs/multicheck/jquery.multicheck.js"></script>
+<script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+<script>
+/****************************************
+*       Basic Table                   *
+****************************************/
+$('#zero_config').DataTable();
+</script>
 </body>
 </html>

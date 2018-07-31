@@ -8,5 +8,6 @@
 
 	$cId = $_GET['id'];
 	$delete = mysqli_query($con, "delete from class110618 where customer_id = '$cId' ");
-	header('location: clients.php');
+	$Mssg = 'Account Closed!';
+	include('clients.php');
 ?>

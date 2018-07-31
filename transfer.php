@@ -27,6 +27,8 @@ $r =  mysqli_query($con, "select balance from transactions where account_number 
 $r2 = mysqli_fetch_array($r);
 $R = $r2['balance'];
 
+$acc =   mysqli_query($con, "select account_number from class110618 where account_number = '$aNumber' ");
+
 
 
 
@@ -34,17 +36,26 @@ $R = $r2['balance'];
 echo mysqli_error($con);
 
 if($amount!== ''){
-	if($balance !== ''){
-		$nBalance = $balance - $amount;
-		$sent = mysqli_query($con, "insert into transactions (transfer_amount, balance, time, customer_email, account_number, transfer_to, debit, description) values('$amount', '$nBalance', '$date', '$customer_email', '$accN', '$aNumber','$amount', 'Transferred to $aNumber')");
+	if(mysqli_num_rows($acc) > 0){
+		if($balance >= $amount){
+			$nBalance = $balance - $amount;
+			$sent = mysqli_query($con, "insert into transactions (transfer_amount, balance, time, customer_email, account_number, transfer_to, debit, description) values('$amount', '$nBalance', '$date', '$customer_email', '$accN', '$aNumber','$amount', 'Transferred to $aNumber')");
 
-		$nrBalance = $R + $amount;
-		$received = mysqli_query($con, "insert into transactions (received_amount, balance, time, customer_email, account_number, received_from, credit, description) values('$amount', '$nrBalance', '$date', '$rEmail', '$aNumber', '$accN','$amount', 'Received from $accN')");
-		$tMssg = 'Transfer Successful!';
+			$nrBalance = $R + $amount;
+			$received = mysqli_query($con, "insert into transactions (received_amount, balance, time, customer_email, account_number, received_from, credit, description) values('$amount', '$nrBalance', '$date', '$rEmail', '$aNumber', '$accN','$amount', 'Received from $accN')");
+			$tMssg = 'Transfer Successful!';
 
-		include('transfers.php');
+			include('transfers.php');
+		}
+		else{
+			$tMssg = 'Insufficient Balance!';
+			include('transfers.php');
+		}
 	}
-	echo mysqli_error($con);
+	else{
+			$tMssg = 'Account Number Does Not Exist!';
+			include('transfers.php');
+		}
 }
 
 else {

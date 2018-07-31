@@ -1,91 +1,87 @@
-<?php 
-    if(!isset($_SESSION))
-    {
-        session_start();
-    }
+<?php
+if(!isset($_SESSION))
+{
+session_start();
+}
+require ('sConn.php');
 ?>
-
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
-
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <title>KB-Edit my account</title>
-    <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <link href="dist/css/style.min.css" rel="stylesheet">
-
-    <style>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>KB-Update Account Details</title>
+        <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
+        <link href="dist/css/style.min.css" rel="stylesheet">
+        <style>
         .navbar-brand {
-                color: #555;
-                font-size: 20px;
-                font-family: 'Raleway', sans-serif;
-                text-transform: uppercase;
-                font-size: 26px;
-            }
-           .navbar-brand b {
-                font-weight: bold;
-                color: #f21d11;
-                font-size: 20px;                
-            }
-            .btn{
-                margin-left: 45%;
-            }
-    </style>
-</head>
-
-<body>    
-    <div id="main-wrapper">
-        <header class="topbar" data-navbarbg="skin5">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin5">
-                    <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    
-                    <a class="navbar-brand" href="index2.php">
-                        <b class="logo-icon p-l-10">
-                        </b>
-
-                        <span class="logo-text">
-                             <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>    
-                        </span>
-                    </a>
-                 
-                    <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
-                </div>
-             
-                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
-                  
-                    <ul class="navbar-nav float-left mr-auto">
-                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
-                    
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                             <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
-                             <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>   
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
-                        </li> -->
+        color: #555;
+        font-size: 20px;
+        font-family: 'Raleway', sans-serif;
+        text-transform: uppercase;
+        font-size: 26px;
+        }
+        .navbar-brand b {
+        font-weight: bold;
+        color: #f21d11;
+        font-size: 20px;
+        }
+        .btn{
+        margin-left: 45%;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="main-wrapper">
+            <header class="topbar" data-navbarbg="skin5">
+                <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                    <div class="navbar-header" data-logobg="skin5">
+                        <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                         
-                        <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
+                        <a class="navbar-brand" href="index2.php">
+                            <b class="logo-icon p-l-10">
+                            </b>
+                            <span class="logo-text">
+                                <a class="navbar-brand" href="#">Keystone<b>Bank</b></a>
+                            </span>
+                        </a>
+                        
+                        <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+                    </div>
+                    
+                    <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
+                        
+                        <ul class="navbar-nav float-left mr-auto">
+                            <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
+                            
+                            <!-- <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="d-none d-md-block">Create New <i class="fa fa-angle-down"></i></span>
+                                    <span class="d-block d-md-none"><i class="fa fa-plus"></i></span>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li> -->
+                            
+                            <li class="nav-item search-box"> <a class="nav-link waves-effect waves-dark" href="javascript:void(0)"><i class="ti-search"></i></a>
                             <form class="app-search position-absolute">
                                 <input type="text" class="form-control" placeholder="Search &amp; enter"> <a class="srh-btn"><i class="ti-close"></i></a>
                             </form>
                         </li>
                     </ul>
-                   
+                    
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31">
                                 <?php
-                                    echo "Welcome, ".$_SESSION['email'];
+                                echo "Welcome, ".$_SESSION['email'];
                                 ?>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
@@ -104,7 +100,6 @@
                 </div>
             </nav>
         </header>
-
         <aside class="left-sidebar" data-sidebarbg="skin5">
             <div class="scroll-sidebar">
                  <nav class="sidebar-nav">
@@ -127,7 +122,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Edit Account Details</h4>
+                        <h4 class="page-title">Update Customer Account Details</h4>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -139,26 +134,29 @@
                     </div>
                 </div>
             </div>
-    
+            
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
-                            <form class="form-horizontal" action="sUpdate_pdetails.php" method="post">
+                            <form class="form-horizontal" action="admin_cUpdate_pdetails.php" method="post">
                                 <div class="card-body">
-                                    <h4 class="card-title">Personal Info</h4>
-                                    <center><font color="red"><h5>
-                                            <?php
-                                                if(isset($Mssg)){
-                                                    echo $Mssg;
-                                                }
-                                            ?>
-                                        </h5></font></center>
+                                    <h4 class="card-title">Customer Info</h4>
+                                    <center><font color="green"><h5>
+                                    <?php
+                                    if(isset($Mssg)){
+                                    echo $Mssg;
+                                    }
+                                    ?>
+                                    </h5></font></center>
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">User Email</label>
+                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Customer Email</label>
                                         <div class="col-sm-6">
-                                            <input type="text" class="form-control" id="email" name="email" readonly="readonly" value="<?php
-                                                echo $_SESSION['email'];
+                                            <input type="text" class="form-control" id="" name="email" readonly="readonly" value="<?php
+                                            $cId = $_GET['id'];
+                                            $email = mysqli_query($con, "select email from class110618 where customer_id = '$cId' ");
+                                            $email2 = mysqli_fetch_array($email);
+                                            echo $email2['email'];
                                             ?>">
                                         </div>
                                     </div>
@@ -175,12 +173,6 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Password</label>
-                                        <div class="col-sm-6">
-                                            <input type="password" class="form-control" id="lname" placeholder="Password Here" name="npassword">
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Contact No</label>
                                         <div class="col-sm-6">
                                             <input type="text" class="form-control" id="cono1" placeholder="e.g 070xxxxxxxx" name="ncontact">
@@ -190,30 +182,11 @@
                                 </div>
                                 <div>
                                     <div class="card-body">
-                                        <button type="submit" class="btn btn-danger">Update</button>
+                                        <button type="submit" class="btn btn-danger">Update</button><br/><br/>
+                                        &nbsp <a href="clients.php" class="btn btn-success">Back</a>
                                     </div>
                                 </div>
                             </form>
-                            <div class="border-top">
-                            <form class="form-horizontal" action="uploadpp.php" method="post" enctype="multipart/form-data">
-                                <div class="card-body">
-                                    <div class="form-group row">
-                                        <label for="cono1" class="col-sm-3 text-right control-label col-form-label">Profile Picture</label>
-                                        <div class="col-sm-6">
-                                            <!-- <div class="custom-file">
-                                                <input type="file" class="custom-file-input" id="validatedCustomFile" name="files">
-                                                <label class="custom-file-label" for="validatedCustomFile">Choose file...</label>
-                                                <!-- <div class="invalid-feedback">Example invalid custom file feedback</div> -->
-                                            <!-- </div> -->
-                                            <input type="file" name="files">
-                                        </div>
-                                        <div class="col-sm-3">
-                                            <button type="submit" class="btn btn-primary">Upload</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -245,5 +218,4 @@
     <script src="assets/libs/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
     <script src="assets/libs/quill/dist/quill.min.js"></script>
 </body>
-
 </html>
