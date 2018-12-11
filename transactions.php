@@ -2,6 +2,7 @@
     {
         session_start();
     }
+    require ('sConn.php');
 ?>
 
 
@@ -106,6 +107,15 @@
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Transactions</h4>
+                        <div class="ml-auto mx-5"><a href="transactions.php" class="btn btn-outline-info font-weight-bold btn-rounded">
+                            <?php
+                                $email = $_SESSION['email'];
+                                $bal = mysqli_query($con, "select balance from transactions where customer_email = '$email' order by transaction_id desc LIMIT 1");
+                                $bal2 = mysqli_fetch_array($bal);
+                                $bal3 = $bal2['balance'];
+                                echo 'Current Balance: N'.$bal3;
+                            ?></a>
+                        </div>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">

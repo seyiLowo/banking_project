@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+</head>
+<body>
+<!-- 	<div id="my-app">
+		<template>
+		<input v-model="name">
+		<p v-bind:title="name">Hey, what are you doing?</p>
+		<button v-on:click="doSomething">Click</button>
+		</template>
+	
+
+	
+		<div v-if='clicked' v-for='skill in skills'>My name is {{ skill.name }} and I am {{ skill.age }} old</div>
+	
+	</div> -->
+	<div id="my-app">
+		
+
+		<template v-if='input'>
+			<span v-if='error'><font color="red">Wrong details. Try again.</font></span>
+			<p>Username</p>
+			<input id="un">
+			<p>Password</p>
+			<input type="password" id="pw"> &nbsp
+			<button v-on:click="doSomething">Login</button>
+
+
+		<!-- 	<wr></wr> -->
+		</template>
+
+		<span v-if='loggedIn'>
+			<font color="green">Welcome {{ username }}</font>
+		</span>
+	</div>
+
+	<script type="text/javascript">
+		
+		var app = new Vue({
+			el: '#my-app',
+			data: {
+				username: 'seyi',
+				password: 'seyi',
+				loggedIn: false,
+				error: false,
+				input: true,
+			},
+			methods:{
+				doSomething: function(){
+					var user = document.getElementById('un').value;
+					var pass = document.getElementById('pw').value;
+					if (user == app.username && pass == app.password) {
+						app.loggedIn = true;
+						app.input = false;
+					}
+					else{
+						app.error = true;
+					}
+				},
+			},
+			
+		})
+		// Vue.component('wr', {
+  // 				template: '<li>This is a todo</li>'
+		// 	})
+	</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 <?php if(!isset($_SESSION))
 {
 session_start();
+require ('sConn.php');
 }
 ?>
 <!DOCTYPE html>
@@ -98,6 +99,15 @@ session_start();
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
                         <h4 class="page-title">Make a Transaction</h4>
+                        <div class="ml-auto mx-5"><a href="transactions.php" class="btn btn-outline-info font-weight-bold btn-rounded">
+                            <?php
+                                $email = $_SESSION['email'];
+                                $bal = mysqli_query($con, "select balance from transactions where customer_email = '$email' order by transaction_id desc LIMIT 1");
+                                $bal2 = mysqli_fetch_array($bal);
+                                $bal3 = $bal2['balance'];
+                                echo 'Current Balance: N'.$bal3;
+                            ?></a>
+                        </div>
                         <div class="ml-auto text-right">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
@@ -112,7 +122,7 @@ session_start();
             
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 mx-auto">
                         <div class="card">
                             <form class="form-horizontal" action="transact.php" method="post">
                                 <div class="card-body">
@@ -127,30 +137,28 @@ session_start();
                                     </h5>
                                     </font></center>
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">User Email</label>
-                                        <div class="col-sm-6">
+                                        <label for="fname" class="col-sm-4 text-right control-label col-form-label">User Email</label>
+                                        <div class="col-sm-5">
                                             <input type="text" class="form-control" id="email" name="email" readonly="readonly" value="<?php
                                             echo $_SESSION['email'];
                                             ?>">
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Withdraw</label>
-                                        <div class="col-sm-6">
+                                        <label for="fname" class="col-sm-4 text-right control-label col-form-label">Withdraw</label>
+                                        <div class="col-sm-5">
                                             <input type="text" class="form-control" id="" placeholder="Withdrawal Amount" name="wAmount">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Deposit</label>
-                                        <div class="col-sm-6">
+                                        <label for="lname" class="col-sm-4 text-right control-label col-form-label">Deposit</label>
+                                        <div class="col-sm-5">
                                             <input type="text" class="form-control" id="" placeholder="Deposit Amount" name="dAmount">
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="card-body">
-                                        <center><button type="submit" id="2" class="btn btn-warning btn-rounded">Transact</button></center>
+                                    <div class="form-group row col-sm-1 mx-auto">
+                                        <button type="submit" id="2" class="btn btn-warning btn-rounded">Transact</button>
                                     </div>
                                 </div>
                             </form>
@@ -169,25 +177,22 @@ session_start();
                                     </h5></font></center>
                                     
                                     <div class="form-group row">
-                                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Amount</label>
-                                        <div class="col-sm-6">
+                                        <label for="fname" class="col-sm-4 text-right control-label col-form-label">Amount</label>
+                                        <div class="col-sm-5">
                                             <input type="text" class="form-control" id="" placeholder="Transfer Amount" name="amount">
                                         </div>
                                     </div>
                                     
                                     <div class="form-group row">
-                                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Account Number</label>
-                                        <div class="col-sm-6">
+                                        <label for="lname" class="col-sm-4 text-right control-label col-form-label">Account Number</label>
+                                        <div class="col-sm-5">
                                             <input type="text" class="form-control" id="" placeholder="Recepient's Account Number" name="aNumber">
                                         </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="card-body">
-                                        <center><button type="submit" id="4" data-toggle="modal" data-target="#Modal2" class="btn btn-warning btn-rounded">Transfer</button></center>
+                                    <div class="form-group row col-sm-1 mx-auto">
+                                        <button type="submit" id="4" class="btn btn-warning btn-rounded">Transfer</button>
                                     </div>
                                 </div>
-                                
                             </form>
                         </div>
                     </div>

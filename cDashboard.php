@@ -128,7 +128,7 @@ require ('sConn.php');
                                     <!-- column -->
                                     <div class="col-lg-9">
                                         <div class="row">
-                                            <div class="col-12 m-t-15">
+                                            <div class="col-12 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fa fa-user m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5">
@@ -144,14 +144,14 @@ require ('sConn.php');
                                                     <small class="font-light">Account Name</small>
                                                 </div>
                                             </div>
-                                            <div class="col-12 m-t-15">
+                                            <div class="col-12 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-at m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5"><?php echo $_SESSION['email']; ?></h5>
                                                     <small class="font-light">User Email</small>
                                                 </div>
                                             </div>
-                                            <div class="col-6 m-t-15">
+                                            <div class="col-6 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-address-card m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5">
@@ -166,7 +166,7 @@ require ('sConn.php');
                                                     <small class="font-light">Contact Number</small>
                                                 </div>
                                             </div>
-                                            <div class="col-6 m-t-15">
+                                            <div class="col-6 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-key m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5">
@@ -181,7 +181,7 @@ require ('sConn.php');
                                                     <small class="font-light">Account Type</small>
                                                 </div>
                                             </div>
-                                            <div class="col-6 m-t-15">
+                                            <div class="col-6 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-id-badge m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5">
@@ -196,7 +196,7 @@ require ('sConn.php');
                                                     <small class="font-light">Account Number</small>
                                                 </div>
                                             </div>
-                                            <div class="col-6 m-t-15">
+                                            <div class="col-6 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-at m-b-5 font-16"></i>
                                                     <h5 class="m-b-0 m-t-5">
@@ -211,7 +211,7 @@ require ('sConn.php');
                                                     <small class="font-light">Account Manager</small>
                                                 </div>
                                             </div>
-                                            <div class="col-12 m-t-15">
+                                            <div class="col-12 m-t-10">
                                                 <div class="bg-dark p-10 text-white text-center">
                                                     <i class="fas fa-gem m-b-5 font-16"></i>
                                                     <font color="orange"><h3 class="m-b-0 m-t-5">

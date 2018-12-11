@@ -28,7 +28,7 @@ if(!isset($_SESSION))
             }
            .navbar-brand b {
                 font-weight: bold;
-                color: #f21d11;
+                color: orange;
                 font-size: 20px;                
             }
             .btn{
