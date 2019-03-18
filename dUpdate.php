@@ -111,7 +111,7 @@ if(!isset($_SESSION))
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="cDashboard.php">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Update Account Details</li>
                                 </ol>
                             </nav>
                         </div>
